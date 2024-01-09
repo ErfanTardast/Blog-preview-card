@@ -15,7 +15,7 @@ body {
 #mm {
   background-color: hsl(0, 0%, 100%);
   padding: 20px;
-  max-width: 25%; /* Adjusted to match the width of the first image */
+  max-width: 50%; /* Adjusted for better mobile view */
   width: 100%;
   margin: 0 auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1), 10px 10px 20px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@ body {
 }
 
 #mm img {
-  max-width: 100%; /* Ensures the image inside the box doesn't exceed the box width */
+  max-width: 100%;
   height: auto;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -54,66 +54,10 @@ body {
   margin-top: 20px;
 }
 
-/* Responsive Design */
-@media screen and (min-width: 700px) {
-  /* Mobile Styles */
+/* Mobile Styles */
+@media screen and (max-width: 700px) {
   #mm {
     padding: 15px;
+    max-width: 90%; /* Adjusted for better mobile view */
   }
-}
-
-@media screen and (min-width: 1440px) {
-  /* Desktop Styles */
-  #mm {
-    padding: 30px;
-  }
-}
-
-h3 {
-  font-size: 16px;
-}
-
-#mm .content a.foundations-link {
-  font-weight: bold;
-  font-size: 24px;
-  color: hsl(0, 0%, 7%);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-#mm .content a.foundations-link:hover,
-#mm .content a.foundations-link:active {
-  color: hsl(47, 88%, 63%);
-}
-
-#pa {
-  color: hsl(0, 0%, 50%);
-}
-
-#name {
-  display: inline;
-  position: absolute;
-  margin-left: 20px;
-  margin-top: 10px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.content img {
-  display: inline-block;
-  position: relative;
-  max-width: 100%;
-  height: auto;
-}
-
-#mm:active,
-#mm:hover {
-  background-color: hsl(0, 0%, 100%);
-  padding: 20px;
-  max-width: 25%;
-  width: 100%;
-  margin: 0 auto;
-  box-shadow: 0px 0 20px rgba(0, 0, 0, 1), 10px 10px 20px rgba(0, 0, 0, .1);
-  border-radius: 10px;
-  text-align: left;
 }
