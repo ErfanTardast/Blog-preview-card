@@ -13,9 +13,25 @@
       color: hsl(228, 45%, 44%);
     }
 
-    /* Mobile-specific styles */
-    #mm .content .toggleButton {
-      width: 100%;
+    /* Added styles for the options buttons */
+    .options {
+      display: flex;
+      gap: 10px;
+    }
+
+    .options button {
+      padding: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .options button:hover {
+      background-color: hsl(47, 88%, 63%);
+    }
+
+    .options button:active {
+      transform: scale(0.95);
     }
   </style>
   <title>Frontend Mentor | Blog preview card</title>
@@ -26,26 +42,60 @@
     <div class="content">
       <h2>Learning</h2>
       <h3>Published 21 Dec 2023</h3>
-      <div class="accordion">
-        <button class="toggleButton" onclick="toggleContent()">Toggle Content</button>
-        <div class="accordion-content">
-          <p><a href="#" class="foundations-link">HTML & CSS foundations</a></p>
-          <p id="pa">These languages are the backbone of every website, defining structure, content, and presentation.</p>
-          <img src="assets/images/image-avatar.webp" alt="Author Avatar">
-          <p id="name">Greg Hooper</p>
-        </div>
-      </div>
+      <p><a href="#" class="foundations-link">HTML & CSS foundations</a></p>
+      <p id="pa">These languages are the backbone of every website, defining structure, content, and presentation.</p>
+      <img src="assets/images/image-avatar.webp" alt="Author Avatar">
+      <p id="name">Greg Hooper</p>
     </div>
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Erfan Tardast</a>.
+    <div class="options">
+      <button id="resizeButton">Resize Box</button>
+      <button id="changeColorButton">Change Color</button>
+      <button id="resetButton">Reset</button>
     </div>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Erfan Tardast</a>.
+  </div>
 
-    <script>
-      function toggleContent() {
-        const content = document.querySelector('.accordion-content');
-        content.classList.toggle('show');
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mmBox = document.getElementById('mm');
+      const resizeButton = document.getElementById('resizeButton');
+      const changeColorButton = document.getElementById('changeColorButton');
+      const resetButton = document.getElementById('resetButton');
+
+      resizeButton.addEventListener('click', function() {
+        mmBox.style.maxWidth = '25%';
+        showActionFeedback('Box Resized');
+      });
+
+      changeColorButton.addEventListener('click', function() {
+        mmBox.style.backgroundColor = getRandomColor();
+        showActionFeedback('Color Changed');
+      });
+
+      resetButton.addEventListener('click', function() {
+        mmBox.style.maxWidth = '';
+        mmBox.style.backgroundColor = '';
+        showActionFeedback('Reset');
+      });
+
+      function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
       }
-    </script>
-  </body>
+
+      function showActionFeedback(action) {
+        // Display feedback, you can customize this part based on your design
+        console.log(action);
+      }
+    });
+    
+  </script>
+</body>
 </html>
