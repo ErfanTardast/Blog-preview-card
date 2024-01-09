@@ -59,28 +59,49 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const mmBox = document.getElementById('mm');
       const resizeButton = document.getElementById('resizeButton');
       const changeColorButton = document.getElementById('changeColorButton');
       const resetButton = document.getElementById('resetButton');
-
-      resizeButton.addEventListener('click', function() {
+  
+      // Click event listeners
+      resizeButton.addEventListener('click', function () {
         mmBox.style.maxWidth = '25%';
         showActionFeedback('Box Resized');
       });
-
-      changeColorButton.addEventListener('click', function() {
+  
+      changeColorButton.addEventListener('click', function () {
         mmBox.style.backgroundColor = getRandomColor();
         showActionFeedback('Color Changed');
       });
-
-      resetButton.addEventListener('click', function() {
+  
+      resetButton.addEventListener('click', function () {
         mmBox.style.maxWidth = '';
         mmBox.style.backgroundColor = '';
         showActionFeedback('Reset');
       });
-
+  
+      // Touch event listeners for mobile
+      resizeButton.addEventListener('touchstart', function (event) {
+        event.preventDefault(); // Prevents default touch behavior
+        mmBox.style.maxWidth = '25%';
+        showActionFeedback('Box Resized');
+      });
+  
+      changeColorButton.addEventListener('touchstart', function (event) {
+        event.preventDefault(); // Prevents default touch behavior
+        mmBox.style.backgroundColor = getRandomColor();
+        showActionFeedback('Color Changed');
+      });
+  
+      resetButton.addEventListener('touchstart', function (event) {
+        event.preventDefault(); // Prevents default touch behavior
+        mmBox.style.maxWidth = '';
+        mmBox.style.backgroundColor = '';
+        showActionFeedback('Reset');
+      });
+  
       function getRandomColor() {
         const letters = '0123456789ABCDEF';
         let color = '#';
@@ -89,12 +110,13 @@
         }
         return color;
       }
-
+  
       function showActionFeedback(action) {
         // Display feedback, you can customize this part based on your design
         console.log(action);
       }
     });
   </script>
+  
 </body>
 </html>
