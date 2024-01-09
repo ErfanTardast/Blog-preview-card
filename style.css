@@ -117,17 +117,3 @@ h3 {
   border-radius: 10px;
   text-align: left;
 }
-/* Add this style to your CSS */
-#mm .content p {
-  display: none; /* Hide the content by default */
-}
-
-#toggleContent {
-  background-color: hsl(47, 88%, 63%);
-  color: hsl(0, 0%, 7%);
-  border: none;
-  padding: 10px;
-  margin-top: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
