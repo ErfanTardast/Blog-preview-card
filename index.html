@@ -46,6 +46,7 @@
       <p id="pa">These languages are the backbone of every website, defining structure, content, and presentation.</p>
       <img src="assets/images/image-avatar.webp" alt="Author Avatar">
       <p id="name">Greg Hooper</p>
+      <button id="toggleContent">Toggle Content</button>
     </div>
     <div class="options">
       <button id="resizeButton">Resize Box</button>
@@ -95,6 +96,16 @@
         console.log(action);
       }
     });
+    document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.getElementById('toggleContent');
+    const contentParagraphs = document.querySelectorAll('#mm .content p');
+
+    toggleButton.addEventListener('click', function () {
+      contentParagraphs.forEach((p) => {
+        p.style.display = p.style.display === 'none' ? 'block' : 'none';
+      });
+    });
+  });
   </script>
 </body>
 </html>
